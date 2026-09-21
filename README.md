@@ -1,41 +1,18 @@
-# Vikram Singh — Analytics & BI Leader Website
+# Vikram Singh — Analytics & BI Portfolio v2
 
-## Files
+This version uses a dark executive glassmorphism visual system inspired by the approved concept: translucent panels, subtle neon data accents, a 3D-style analytics dashboard, architecture visuals, impact metrics, career timeline and leadership positioning.
 
-- `index.html` — page structure/content
-- `styles.css` — responsive design
-- `script.js` — mobile menu, scroll effects, metrics and navigation
-- `resume.pdf` — optional; add your actual resume here
+## Before publishing
+1. Replace `replace-with-your-email@example.com` in `index.html`.
+2. Add your final `resume.pdf` to this folder.
+3. Verify every metric and role detail against your final CV.
+4. Upload all files to your GitHub repository.
 
 ## Run locally
-
-Simply open `index.html` in a browser.
-
-For a local server:
+Open `index.html` directly, or use:
 
 ```bash
 python -m http.server 8000
 ```
 
-Then open:
-
-http://localhost:8000
-
-## Before publishing
-
-1. Replace `replace-with-your-email@example.com` in `index.html` with your real email address.
-2. Add your actual `resume.pdf` file in the same folder.
-3. Review all metrics and employment details against the final resume.
-4. Optional: replace the text-only brand mark with a professional headshot or personal logo.
-
-## Deployment
-
-This is a plain static site, so it can be deployed to:
-
-- GitHub Pages
-- Netlify
-- Vercel
-- Cloudflare Pages
-- Any standard web host
-
-No build step is required.
+Then open `http://localhost:8000`.
