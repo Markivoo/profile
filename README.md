@@ -1,18 +1,20 @@
-# Vikram Singh — Analytics & BI Portfolio v2
+# Vikram Singh — Analytics & BI Leader Portfolio
 
-This version uses a dark executive glassmorphism visual system inspired by the approved concept: translucent panels, subtle neon data accents, a 3D-style analytics dashboard, architecture visuals, impact metrics, career timeline and leadership positioning.
+This repository contains the interactive portfolio for Vikram Singh, built with native HTML, CSS, and JavaScript.
 
-## Before publishing
-1. Replace `replace-with-your-email@example.com` in `index.html`.
-2. Add your final `resume.pdf` to this folder.
-3. Verify every metric and role detail against your final CV.
-4. Upload all files to your GitHub repository.
+## Architecture
+The application acts as a Single Page Application (SPA). By default, it loads as a continuous scrollable page. However, using the navigation menu filters the view to isolate specific sections while automatically managing browser history states. Rich content is stored within the JavaScript file and injected dynamically into modals upon user interaction to keep the initial DOM lightweight.
 
-## Run locally
-Open `index.html` directly, or use:
+## Folder Structure
+Make sure your files are organized exactly like this to run properly:
 
-```bash
-python -m http.server 8000
-```
-
-Then open `http://localhost:8000`.
+```text
+project-folder/
+├── index.html
+├── styles.css
+├── script.js
+├── README.md
+├── hero-visual_2.png
+├── company-card.png
+├── contact-mountain.png
+└── resume.pdf
