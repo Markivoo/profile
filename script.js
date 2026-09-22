@@ -10,6 +10,17 @@ const menu = document.querySelector('.hamb');
 const navContainer = document.querySelector('.nav nav');
 
 let isFullPageMode = true;
+let lastFocusedElement = null;
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+function showModal(modal, focusTarget) {
+  if (!modal) return;
+  lastFocusedElement = document.activeElement;
+  modal.classList.add('active');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  if (focusTarget) window.setTimeout(() => focusTarget.focus(), 40);
+}
 
 function switchTab(targetHash) {
   const rawTarget = targetHash.replace('#', '');
@@ -26,7 +37,7 @@ function switchTab(targetHash) {
     tabSections.forEach(sec => sec.style.display = 'none');
     const targetSection = document.getElementById(`tab-${activeTabId}`);
     if (targetSection) targetSection.style.display = 'block';
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    window.scrollTo({ top: 0, behavior: 'auto' });
     navLinks.forEach(link => link.classList.remove('active'));
     const activeLink = document.querySelector(`nav a[href="#${activeTabId}"]`);
     if(activeLink) activeLink.classList.add('active');
@@ -71,6 +82,7 @@ if(menu && navContainer) {
 const tiltContainer = document.getElementById('hero-tilt');
 if (tiltContainer) {
   tiltContainer.addEventListener('mousemove', (e) => {
+    if (prefersReducedMotion.matches) return;
     const rect = tiltContainer.getBoundingClientRect();
     const x = e.clientX - rect.left; 
     const y = e.clientY - rect.top;  
@@ -91,7 +103,7 @@ if (tiltContainer) {
     document.getElementById('modal-icon').innerText = "◫";
     document.getElementById('modal-tags').innerHTML = `<span>Business Context</span><span>Analytics</span><span>Technology</span>`;
     document.getElementById('modal-body').innerHTML = `
-      <p><strong>I build the bridge between business questions, enterprise data and technology — turning complex information into trusted analytics that organisations can use to operate and make decisions.</strong></p>
+      <p><strong>I build the bridge between business questions, enterprise data and technology, turning complex information into trusted analytics that organisations can use to operate and make decisions.</strong></p>
       <p>My career has developed across three connected dimensions:</p>
       <ul>
         <li><strong>Business Understanding:</strong> I understand the processes behind the data.</li>
@@ -99,8 +111,7 @@ if (tiltContainer) {
         <li><strong>Technology:</strong> I understand how the underlying data platforms and processing systems need to work.</li>
       </ul>
     `;
-    detailModal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    showModal(detailModal, document.querySelector('#detail-modal .modal-close'));
   });
 }
 
@@ -109,8 +120,7 @@ const connectModal = document.getElementById('connect-modal');
 const btnLetsConnect = document.getElementById('btn-lets-connect');
 if(btnLetsConnect) {
   btnLetsConnect.addEventListener('click', () => {
-    connectModal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    showModal(connectModal, document.querySelector('#connect-modal .modal-close'));
   });
 }
 
@@ -185,7 +195,7 @@ const detailsData = {
   `,
 
   // 2. FROM DATA TO DECISIONS (FLOW CARDS)
-  "Step 01 — Business Need": `
+  "Step 01: Business Need": `
     <p><strong>Start with the business question.</strong></p>
     <ul>
       <li>What decision needs to be made?</li>
@@ -194,7 +204,7 @@ const detailsData = {
       <li>What information does finance, operations or leadership actually need?</li>
     </ul>
   `,
-  "Step 02 — Source Systems": `
+  "Step 02: Source Systems": `
     <p><strong>Identify the systems that contain the required information.</strong> A reporting problem is often actually a source-data or integration problem.</p>
     <ul>
       <li>ERP & Finance systems</li>
@@ -203,7 +213,7 @@ const detailsData = {
       <li>Supporting reference data</li>
     </ul>
   `,
-  "Step 03 — Data Processing": `
+  "Step 03: Data Processing": `
     <p><strong>Transform raw source information into a structured analytical dataset.</strong></p>
     <ul>
       <li>Extraction, Transformation, and Standardisation</li>
@@ -212,7 +222,7 @@ const detailsData = {
       <li>Business-rule application & Exception handling</li>
     </ul>
   `,
-  "Step 04 — Validation & Controls": `
+  "Step 04: Validation & Controls": `
     <p><strong>Before information becomes a management number, it needs to be validated.</strong> The objective is to make the number explainable, not merely available.</p>
     <ul>
       <li>Record-count validation & Duplicate detection</li>
@@ -221,7 +231,7 @@ const detailsData = {
       <li>Exception reporting & Period/Amount validation</li>
     </ul>
   `,
-  "Step 05 — Analytics & BI": `
+  "Step 05: Analytics & BI": `
     <p><strong>Once the data foundation is reliable, analytics becomes much more effective.</strong></p>
     <ul>
       <li>Power BI dashboards & KPI monitoring</li>
@@ -230,7 +240,7 @@ const detailsData = {
       <li>Reconciliation views & Trend analysis</li>
     </ul>
   `,
-  "Step 06 — Business Decision": `
+  "Step 06: Business Decision": `
     <p><strong>The final purpose is action.</strong> Better analytics should help teams:</p>
     <ul>
       <li>Identify issues earlier & reduce manual investigation</li>
@@ -300,7 +310,7 @@ const detailsData = {
 
   // 5. EXPERIENCE / WORK GRID
   "Analytics Manager at TBO.COM": `
-    <p><strong>Analytics Manager · January 2023 – Present</strong></p>
+    <p><strong>Analytics Manager · January 2023 - Present</strong></p>
     <p>I currently lead analytics and business intelligence initiatives across finance, revenue and operations in a multi-entity global environment.</p>
     <h4>Working Across the Enterprise Data Stack</h4>
     <ul>
@@ -404,7 +414,7 @@ const detailsData = {
   `,
   "15+ Data Sources": `
     <p><strong>15+ Data Sources Consolidated</strong></p>
-    <p>Brought together data from highly fragmented systems—including ERP platforms, flat files, cloud storage, and operational applications—into consistent, reconciled analytical views.</p>
+    <p>Brought together data from highly fragmented systems, including ERP platforms, flat files, cloud storage, and operational applications, into consistent, reconciled analytical views.</p>
   `,
   "80% Reduction in Effort": `
     <p><strong>80% Reduction in Manual Processing Effort</strong></p>
@@ -426,7 +436,10 @@ const modalBody = document.getElementById('modal-body');
 const interactiveSelectors = '.work-card, .glass, .role-card, .flow-card, .tech-card, .timeline-card, .metric';
 
 document.querySelectorAll(interactiveSelectors).forEach(card => {
-  card.addEventListener('click', () => {
+  card.setAttribute('role', 'button');
+  card.setAttribute('tabindex', '0');
+
+  const openDetails = () => {
     // Determine the title based on the element type
     let title = card.getAttribute('data-title');
     if (!title) {
@@ -435,20 +448,19 @@ document.querySelectorAll(interactiveSelectors).forEach(card => {
     }
 
     const icon = card.getAttribute('data-icon') || '◎';
-    
     modalTitle.innerText = title;
     modalIcon.innerText = icon;
     modalTags.innerHTML = '';
-    
+
     const tagsData = card.getAttribute('data-tags');
     if (tagsData) {
       tagsData.split(',').forEach(tag => modalTags.innerHTML += `<span>${tag.trim()}</span>`);
     } else {
       const existingTags = card.querySelectorAll('.tags span');
-      if(existingTags.length) existingTags.forEach(tag => modalTags.innerHTML += `<span>${tag.innerText}</span>`);
+      if (existingTags.length) existingTags.forEach(tag => modalTags.innerHTML += `<span>${tag.innerText}</span>`);
     }
 
-    // Load rich text from database or fallback to brief paragraph in HTML
+    // Load rich text from database or fallback to the brief paragraph in HTML
     if (detailsData[title]) {
       modalBody.innerHTML = detailsData[title];
     } else {
@@ -456,14 +468,28 @@ document.querySelectorAll(interactiveSelectors).forEach(card => {
       modalBody.innerHTML = `<p>${paragraph ? paragraph.innerHTML : 'Detailed information coming soon.'}</p>`;
     }
 
-    detailModal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    showModal(detailModal, document.querySelector('#detail-modal .modal-close'));
+  };
+
+  card.addEventListener('click', openDetails);
+  card.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      openDetails();
+    }
   });
 });
 
 const closeAllModals = () => {
-  document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('active'));
+  document.querySelectorAll('.modal-overlay').forEach(modal => {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+  });
   document.body.style.overflow = '';
+  if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+    lastFocusedElement.focus();
+  }
+  lastFocusedElement = null;
 };
 
 document.querySelectorAll('.modal-close').forEach(btn => btn.addEventListener('click', closeAllModals));
