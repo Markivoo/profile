@@ -88,7 +88,7 @@ if (tiltContainer) {
   tiltContainer.addEventListener('click', () => {
     const detailModal = document.getElementById('detail-modal');
     document.getElementById('modal-title').innerText = "Where Business Meets Technology";
-    document.getElementById('modal-icon').innerText = "◫";
+    document.getElementById('modal-icon').innerHTML = "<i class='fa-solid fa-code-branch'></i>";
     document.getElementById('modal-tags').innerHTML = `<span>Business Context</span><span>Analytics</span><span>Technology</span>`;
     document.getElementById('modal-body').innerHTML = `
       <p><strong>I build the bridge between business questions, enterprise data and technology — turning complex information into trusted analytics that organisations can use to operate and make decisions.</strong></p>
@@ -116,7 +116,6 @@ if(btnLetsConnect) {
 
 // --- MODAL: RICH CONTENT DATA ---
 const detailsData = {
-  // 1. CAPABILITIES & LEADERSHIP
   "Analytics Leadership": `
     <p>I translate business and management priorities into analytics roadmaps, reporting capabilities and data initiatives. The objective is not simply to produce more reports. It is to make analytics dependable, repeatable and aligned with the way the business operates.</p>
     <h4>My work includes:</h4>
@@ -183,8 +182,6 @@ const detailsData = {
     <p>Leadership in analytics should not create distance from the technology.</p>
     <p>I believe understanding the data, code, architecture and technical constraints makes business leadership more effective. I maintain hands-on expertise across SQL, Python, and Power BI models to architect practical solutions rapidly.</p>
   `,
-
-  // 2. FROM DATA TO DECISIONS (FLOW CARDS)
   "Step 01 — Business Need": `
     <p><strong>Start with the business question.</strong></p>
     <ul>
@@ -239,8 +236,6 @@ const detailsData = {
       <li>Make decisions with greater confidence</li>
     </ul>
   `,
-
-  // 3. TECHNOLOGY & TOOLS (TECH CARDS)
   "Data & Programming": `
     <p><strong>SQL:</strong> Advanced querying, transformation, reconciliation, analytical processing and data validation.</p>
     <p><strong>Python:</strong> Automation, data processing, transformation and analytical workflows.</p>
@@ -275,8 +270,6 @@ const detailsData = {
       <li>Exception handling & Access controls</li>
     </ul>
   `,
-
-  // 4. CAREER EVOLUTION (TIMELINE CARDS)
   "DTDC Courier & Cargo": `
     <p><strong>Operations & Customer Relationship Management (2012-2014)</strong></p>
     <p>Started my career close to the operational side of the business, working with customers, requirements, service issues, regional reporting and operational coordination. This experience provided an early understanding of how business processes generate data and how operational information is used to monitor performance.</p>
@@ -297,8 +290,6 @@ const detailsData = {
     <p><strong>Business Analytics (2022-2023)</strong></p>
     <p>Worked on business architecture, requirements analysis, process understanding, performance indicators, trend analysis, root-cause analysis and management reporting. This experience further strengthened the connection between business processes and analytical solutions.</p>
   `,
-
-  // 5. EXPERIENCE / WORK GRID
   "Analytics Manager at TBO.COM": `
     <p><strong>Analytics Manager · January 2023 – Present</strong></p>
     <p>I currently lead analytics and business intelligence initiatives across finance, revenue and operations in a multi-entity global environment.</p>
@@ -380,8 +371,6 @@ const detailsData = {
       <li>Power BI, DAX, ERP data</li>
     </ul>
   `,
-
-  // 6. IMPACT METRICS
   "14+ Years Experience": `
     <p><strong>14+ Years of Cross-Functional Experience</strong></p>
     <p>My background covers a wide spectrum of the analytics lifecycle, including operations, MIS, finance analytics, business reporting, and enterprise BI. This breadth allows me to understand technical problems through a deep business and financial lens.</p>
@@ -422,22 +411,21 @@ const modalIcon = document.getElementById('modal-icon');
 const modalTags = document.getElementById('modal-tags');
 const modalBody = document.getElementById('modal-body');
 
-// Combined all interactive card classes here
 const interactiveSelectors = '.work-card, .glass, .role-card, .flow-card, .tech-card, .timeline-card, .metric';
 
 document.querySelectorAll(interactiveSelectors).forEach(card => {
   card.addEventListener('click', () => {
-    // Determine the title based on the element type
     let title = card.getAttribute('data-title');
     if (!title) {
       const heading = card.querySelector('h2, h3, b, strong');
       title = heading ? heading.innerText : 'Details';
     }
 
-    const icon = card.getAttribute('data-icon') || '◎';
+    // Instead of raw HTML in the attribute, we grab the class string and build the HTML here safely.
+    const iconClass = card.getAttribute('data-icon') || 'fa-solid fa-circle-info';
     
     modalTitle.innerText = title;
-    modalIcon.innerText = icon;
+    modalIcon.innerHTML = `<i class="${iconClass}"></i>`;
     modalTags.innerHTML = '';
     
     const tagsData = card.getAttribute('data-tags');
@@ -448,7 +436,6 @@ document.querySelectorAll(interactiveSelectors).forEach(card => {
       if(existingTags.length) existingTags.forEach(tag => modalTags.innerHTML += `<span>${tag.innerText}</span>`);
     }
 
-    // Load rich text from database or fallback to brief paragraph in HTML
     if (detailsData[title]) {
       modalBody.innerHTML = detailsData[title];
     } else {
