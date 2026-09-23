@@ -1,20 +1,17 @@
 # Vikram Singh — Analytics & BI Leader Portfolio
 
-This repository contains the interactive portfolio for Vikram Singh, built with native HTML, CSS, and JavaScript.
+This version keeps the supplied dark futuristic visual direction but adds substantially more professional content and fixes the image crops/positioning that previously leaked text from the reference image into the hero/contact areas.
 
-## Architecture
-The application acts as a Single Page Application (SPA). By default, it loads as a continuous scrollable page. However, using the navigation menu filters the view to isolate specific sections while automatically managing browser history states. Rich content is stored within the JavaScript file and injected dynamically into modals upon user interaction to keep the initial DOM lightweight.
+## Files
+- `index.html` — portfolio content and sections
+- `styles.css` — responsive visual system
+- `script.js` — navigation highlighting and mobile menu
+- `assets/hero-visual.png` — corrected hero crop from the reference image
+- `assets/company-card.png` — corrected TBO card crop
+- `assets/contact-mountain.png` — corrected contact background crop
 
-## Folder Structure
-Make sure your files are organized exactly like this to run properly:
+## Resume
+Place your final `resume.pdf` next to `index.html` to activate the download buttons.
 
-```text
-project-folder/
-├── index.html
-├── styles.css
-├── script.js
-├── README.md
-├── hero-visual_2.png
-├── company-card.png
-├── contact-mountain.png
-└── resume.pdf
+## Contact
+The LinkedIn link is set to `https://linkedin.com/in/markivoo`. No email address has been invented in this version.
