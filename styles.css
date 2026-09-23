@@ -83,6 +83,7 @@ a{color:inherit;text-decoration:none}.topbar{height:67px;border-bottom:1px solid
 .modal-body li { margin-bottom: 8px; }
 .modal-body strong { color: #7ee9ff; }
 
+/* Custom Scrollbar for Modal */
 .modal-content::-webkit-scrollbar { width: 6px; }
 .modal-content::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); border-radius: 10px; }
 .modal-content::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 10px; }
@@ -91,59 +92,80 @@ a{color:inherit;text-decoration:none}.topbar{height:67px;border-bottom:1px solid
 /* DESKTOP-SPECIFIC SIZING (Fixes small text on Desktop) */
 /* ---------------------------------------------------- */
 @media(min-width: 901px) {
-  .nav nav a { font-size: 13px; padding: 26px 0; }
-  .resume { font-size: 13px; height: 38px; padding: 0 20px; }
-  .hero h1 { font-size: 42px; margin-bottom: 18px; }
-  .hero p { font-size: 14px; line-height: 1.6; max-width: 700px; }
-  .hero-meta { font-size: 12px; margin-top: 25px; }
-  .hero-meta i { font-size: 14px; }
-  .btn { font-size: 13px; height: 42px; padding: 0 22px; }
-  .intro h2, .career-title h2 { font-size: 26px; }
-  .intro p { font-size: 14px; }
-  .intro a { font-size: 12px; }
-  .glass h3 { font-size: 16px; margin-bottom: 8px; }
-  .glass p { font-size: 13px; line-height: 1.5; }
-  .glass .icon { width: 42px; height: 42px; font-size: 20px; margin-bottom: 15px; }
-  .flow-card { width: 120px; height: 130px; flex: 0 0 120px; }
-  .flow-card span { font-size: 28px; margin-bottom: 10px; }
-  .flow-card b { font-size: 11px; }
-  .flow-card small { font-size: 10px; }
-  .tech-card { padding: 18px; }
-  .tech-card b { font-size: 14px; margin-bottom: 12px; }
-  .tech-card span { font-size: 12px; margin-right: 15px; margin-bottom: 10px; }
-  .tech-card span i { font-size: 14px; }
-  .role-copy h2 { font-size: 26px; margin-bottom: 5px; }
-  .role-copy h4 { font-size: 14px; margin-bottom: 12px; }
-  .role-copy p { font-size: 14px; line-height: 1.6; margin-bottom: 15px; }
-  .role-points span { font-size: 12.5px; }
-  .scale-strip b { font-size: 11px; }
-  .scale-strip span { font-size: 11px; }
-  .focus b { font-size: 14px; margin-bottom: 15px; }
-  .focus span { font-size: 12px; margin-bottom: 8px; display: block; }
-  .focus span i { width: 20px; }
-  .timeline-card b { font-size: 15px; }
-  .timeline-card small { font-size: 12px; margin-top: 6px; }
-  .work-card { grid-template-columns: 45px 1fr; padding: 20px; }
-  .work-icon { width: 45px; height: 45px; font-size: 20px; }
-  .work-card h3 { font-size: 15px; margin-bottom: 8px; }
-  .work-card p { font-size: 13px; line-height: 1.5; }
-  .tags span { font-size: 10px; padding: 4px 10px; }
-  .metric { padding: 20px; height: auto; }
-  .metric span { font-size: 24px; }
-  .metric strong { font-size: 32px; margin: 15px 0 8px; }
-  .metric small { font-size: 12.5px; }
-  .connect-inner { padding: 60px 0; }
-  .connect h2 { font-size: 28px; margin-bottom: 10px; }
-  .connect p { font-size: 14px; max-width: 600px; }
-  .prose-block h2 { font-size: 32px; }
-  .prose-block p { font-size: 16px; margin-bottom: 20px; }
-  .highlight-box h3 { font-size: 18px; margin-bottom: 12px; }
-  .highlight-box p { font-size: 15px; }
-  .modal-header h2 { font-size: 24px; }
-  .modal-icon-container { width: 55px; height: 55px; font-size: 24px; }
-  .modal-tags span { font-size: 12px; padding: 6px 12px; }
-  .modal-body { font-size: 14.5px; }
-  .modal-body h4 { font-size: 18px; }
+  body { font-size: 16px; }
+  .wrap { width: min(1300px, calc(100% - 100px)); } 
+  
+  .nav nav a { font-size: 14px; padding: 26px 0; }
+  .resume { font-size: 14px; height: 42px; padding: 0 24px; }
+  
+  .hero h1 { font-size: 54px; margin-bottom: 20px; line-height: 1.1; }
+  .hero p { font-size: 18px; line-height: 1.6; max-width: 800px; }
+  .hero-meta { font-size: 14px; margin-top: 30px; gap: 15px; }
+  .hero-meta i { font-size: 16px; }
+  .btn { font-size: 14px; height: 46px; padding: 0 28px; }
+  
+  .intro h2, .career-title h2 { font-size: 32px; }
+  .intro p { font-size: 16px; max-width: 700px; margin-bottom: 20px; }
+  .intro a { font-size: 14px; }
+  
+  .glass { padding: 24px; min-height: 180px; }
+  .glass h3 { font-size: 18px; margin-bottom: 12px; }
+  .glass p { font-size: 15px; line-height: 1.6; }
+  .glass .icon { width: 50px; height: 50px; font-size: 24px; margin-bottom: 18px; }
+  
+  .flow-card { width: 140px; height: 150px; flex: 0 0 140px; }
+  .flow-card span { font-size: 34px; margin-bottom: 12px; }
+  .flow-card b { font-size: 14px; }
+  .flow-card small { font-size: 12px; margin-top: 8px; }
+  
+  .tech-card { padding: 20px; min-height: 120px; }
+  .tech-card b { font-size: 16px; margin-bottom: 15px; }
+  .tech-card span { font-size: 14px; margin-right: 18px; margin-bottom: 12px; }
+  .tech-card span i { font-size: 16px; width: 18px; }
+  
+  .current-role { grid-template-columns: 1.5fr 350px; gap: 30px; } 
+  .role-card { padding: 30px; gap: 35px; }
+  .role-copy h2 { font-size: 32px; margin-bottom: 8px; }
+  .role-copy h4 { font-size: 18px; margin-bottom: 16px; }
+  .role-copy p { font-size: 16px; line-height: 1.6; margin-bottom: 20px; }
+  .role-points span { font-size: 14px; margin-bottom: 6px; }
+  .scale-strip b { font-size: 13px; }
+  .scale-strip span { font-size: 13px; padding-left: 10px; }
+  .focus b { font-size: 16px; margin-bottom: 18px; }
+  .focus span { font-size: 14px; margin-bottom: 12px; }
+  .focus span i { width: 24px; }
+  
+  .timeline-card { padding-top: 30px; }
+  .timeline-card b { font-size: 18px; margin-left: 8px; }
+  .timeline-card small { font-size: 14px; margin-top: 8px; margin-left: 8px; }
+  .timeline-dot { width: 18px; height: 18px; top: 5px; }
+  
+  .work-card { grid-template-columns: 50px 1fr; padding: 24px; min-height: 160px; gap: 20px; }
+  .work-icon { width: 50px; height: 50px; font-size: 22px; }
+  .work-card h3 { font-size: 18px; margin-bottom: 10px; }
+  .work-card p { font-size: 15px; line-height: 1.6; margin-bottom: 15px; }
+  .tags span { font-size: 12px; padding: 6px 12px; }
+  
+  .metric { padding: 25px; height: auto; }
+  .metric span { font-size: 28px; }
+  .metric strong { font-size: 42px; margin: 18px 0 10px; }
+  .metric small { font-size: 14px; line-height: 1.4; }
+  
+  .connect-inner { padding: 80px 0; }
+  .connect h2 { font-size: 36px; margin-bottom: 15px; }
+  .connect p { font-size: 16px; max-width: 700px; margin-bottom: 25px; }
+  
+  .prose-block h2 { font-size: 38px; }
+  .prose-block p { font-size: 18px; margin-bottom: 25px; line-height: 1.8; }
+  .highlight-box h3 { font-size: 22px; margin-bottom: 15px; }
+  .highlight-box p { font-size: 16px; line-height: 1.6; }
+  
+  .modal-header h2 { font-size: 28px; }
+  .modal-icon-container { width: 60px; height: 60px; font-size: 28px; }
+  .modal-tags span { font-size: 14px; padding: 8px 16px; }
+  .modal-body { font-size: 16px; line-height: 1.8; }
+  .modal-body h4 { font-size: 22px; margin: 25px 0 15px; }
+  .modal-body li { margin-bottom: 10px; }
 }
 
 @media(max-width:1100px){.wrap{width:calc(100% - 48px)}.nav{gap:24px}.nav nav{gap:22px}.hero h1{font-size:27px}.work-grid{grid-template-columns:repeat(2,1fr)}}
