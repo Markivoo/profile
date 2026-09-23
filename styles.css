@@ -108,8 +108,8 @@ a{color:inherit;text-decoration:none}
 .experience{padding:20px 0 0}
 .current-role{display:grid;grid-template-columns:1.2fr 350px;gap:30px;align-items:stretch}
 .role-card{border:1px solid #0b8bd1;border-radius:10px;background:radial-gradient(circle at 30% 50%,rgba(0,142,255,.22),transparent 42%),linear-gradient(120deg,#062e59,#031a39);padding:30px;display:grid;grid-template-columns:1.24fr .76fr;gap:35px;box-shadow:inset 0 0 30px rgba(0,157,255,.05)}
-.role-copy label{font-size:15px;color:#70dfff;font-weight:900}
-.role-copy h2{font-size:26px;margin:10px 0 5px}
+.role-copy label{display:block;font-size:13px;color:#70dfff;font-weight:900;letter-spacing:0.05em;margin-bottom:8px;}
+.role-copy h2{font-size:26px;margin:5px 0 5px}
 .role-copy h4{font-size:15px;color:#a9c0d8;margin:0 0 15px}
 .role-copy p{font-size:15px;color:#b2c8df;line-height:1.6;margin:0 0 20px}
 .role-points{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 15px;margin:0 0 20px}
@@ -131,7 +131,7 @@ a{color:inherit;text-decoration:none}
 /* Timeline */
 .career{padding:50px 0 30px}
 .career-title{display:flex;align-items:flex-start;gap:20px}
-.career-title p{font-size:15px;color:#9eb6d1;margin:1px 0 0;line-height:1.5}
+.career-title p{font-size:16px;color:#9eb6d1;margin:6px 0 0;line-height:1.6}
 .timeline{display:grid;grid-template-columns:repeat(6,1fr);position:relative;margin-top:20px}
 .timeline:before{content:"";position:absolute;left:4.6%;right:1.7%;top:12px;height:3px;background:linear-gradient(90deg,#00dfff,#8d5eff)}
 .timeline-card{position:relative;padding-top:30px;transition:transform 0.3s;cursor:pointer}
@@ -225,7 +225,7 @@ a{color:inherit;text-decoration:none}
   .hero-meta { font-size: 15px; margin-top: 35px; }
   
   .intro h2, .career-title h2 { font-size: 34px; margin-bottom: 18px; }
-  .intro p, .career-title p { font-size: 17px; max-width: 850px; }
+  .intro p, .career-title p { font-size: 18px; max-width: 850px; line-height: 1.6; }
   
   .glass { padding: 30px; }
   .glass h3 { font-size: 20px; }
@@ -239,6 +239,7 @@ a{color:inherit;text-decoration:none}
   .tech-card b { font-size: 18px; }
   .tech-card span { font-size: 15px; }
   
+  .role-copy label { font-size: 15px; margin-bottom: 12px; }
   .role-copy h2 { font-size: 34px; }
   .role-copy h4 { font-size: 18px; }
   .role-copy p { font-size: 16px; }
@@ -283,13 +284,11 @@ a{color:inherit;text-decoration:none}
   .hero-art{height:270px;justify-content:center}
   .hero-image{height:270px;max-width:100%;width:auto}
   
-  /* Fix Grid Blowout on Mobile */
   .two-col{grid-template-columns:minmax(0, 1fr); padding:20px 0;}
-  .intro{position:relative; top:0;} /* Disable sticky intro on mobile */
+  .intro{position:relative; top:0;} 
   
   .cards.four,.cards.eight{grid-template-columns:repeat(2,1fr)}
   
-  /* Fix Swipe Scrolling for Flow and Career sections */
   .career{overflow:visible}
   .timeline{display:flex;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;padding-bottom:20px;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory}
   .timeline-card{flex:0 0 220px;scroll-snap-align:start; padding-right:15px;}
