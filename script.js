@@ -421,10 +421,11 @@ document.querySelectorAll(interactiveSelectors).forEach(card => {
       title = heading ? heading.innerText : 'Details';
     }
 
-    const icon = card.getAttribute('data-icon') || '<i class="fa-solid fa-circle-info"></i>';
+    // Instead of raw HTML in the attribute, we grab the class string and build the HTML here safely.
+    const iconClass = card.getAttribute('data-icon') || 'fa-solid fa-circle-info';
     
     modalTitle.innerText = title;
-    modalIcon.innerHTML = icon; // Updated to render HTML <i> tags properly
+    modalIcon.innerHTML = `<i class="${iconClass}"></i>`;
     modalTags.innerHTML = '';
     
     const tagsData = card.getAttribute('data-tags');
