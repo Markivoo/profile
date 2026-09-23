@@ -53,7 +53,7 @@ a{color:inherit;text-decoration:none}.topbar{height:67px;border-bottom:1px solid
 .work{padding:19px 0 30px}.work-head{margin-bottom:15px}.work-head .intro p{max-width:600px}.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.work-card{border:1px solid #17659f;border-radius:10px;background:linear-gradient(145deg,#07355f,#04244b);padding:16px;display:grid;grid-template-columns:34px 1fr;gap:12px;min-height:120px;box-shadow:inset 0 0 22px rgba(0,154,255,.06)}.work-card:nth-child(3n+2){border-color:#2e76c5}.work-card:nth-child(3n+3){border-color:#6152bd}.work-icon{width:32px;height:32px;display:grid;place-items:center;border-radius:50%;background:rgba(41,174,255,.13);color:#83e9ff;font-size:15px;transition:all 0.3s}.work-card:hover .work-icon{background:var(--cyan);color:#000;transform:scale(1.1)}.work-card h3{font-size:11px;margin:0 0 6px}.work-card p{font-size:8.5px;line-height:1.45;color:#abc3dc;margin:0 0 10px}.tags{display:flex;gap:5px;flex-wrap:wrap}.tags span{border:1px solid #24567f;border-radius:12px;padding:2px 6px;font-size:6.5px;color:#9fc0df;background:rgba(2,24,48,.42)}
 
 /* Capabilities & Tech */
-.leadership .two-col,.technology .two-col{padding:30px 0}.tech-groups{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.tech-card{border:1px solid #17629c;border-radius:8px;padding:12px;background:linear-gradient(145deg,#08365f,#04244a);min-height:90px;transition:all 0.3s;cursor:pointer}.tech-card b{display:block;font-size:10px;color:#d6e8f9;margin-bottom:10px}.tech-card span{font-size:8px;color:#a9c4df;margin-right:6px;white-space:nowrap;display:inline-block;margin-bottom:6px}.tech-card span i {width:12px; text-align:center; margin-right:3px;}
+.leadership .two-col,.technology .two-col{padding:30px 0}.tech-groups{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.tech-card{border:1px solid #17629c;border-radius:8px;padding:12px;background:linear-gradient(145deg,#08365f,#04244a);min-height:90px;transition:all 0.3s;cursor:pointer}.tech-card b{display:block;font-size:10px;color:#d6e8f9;margin-bottom:10px}.tech-card span{display:inline-flex;align-items:center;font-size:9px;color:#a9c4df;margin-right:10px;margin-bottom:8px;white-space:nowrap;}.tech-card span i {width:auto; margin-right:5px;}
 
 /* Connect / Footer */
 .connect{position:relative;min-height:120px;border-bottom:1px solid #13497c;background:linear-gradient(90deg,#05285a,#08285b 42%,#092d60);overflow:hidden}.connect:before{content:"";position:absolute;right:0;top:0;width:58%;height:100%;background:url("assets/contact-mountain.png") center/cover no-repeat;opacity:.7;mix-blend-mode:screen;transition:transform 10s ease-out}.connect:hover:before{transform:scale(1.05)}.connect-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.2fr .85fr auto;gap:25px;align-items:center;min-height:120px;padding:40px 0}.connect h2{font-size:18px;margin:0 0 6px}.connect p{font-size:10px;line-height:1.4;color:#b3c9e0;margin:0;max-width:450px}.contact-details{display:flex;flex-direction:column;gap:12px;align-items:flex-start}.big{height:36px;transition:all 0.3s;font-size:11px;padding:0 20px;}.big:hover{background:rgba(17,201,255,0.2);transform:scale(1.05)}.footer{min-height:60px;display:grid;grid-template-columns:auto 1fr auto;gap:15px;align-items:center;background:#02152d}.footer b{font-size:11px;display:inline-block;margin-right:10px;}.footer span{font-size:9px;color:#6f8aa8}.footer nav{justify-self:end;display:flex;gap:20px}.footer nav a{font-size:9px;color:#b3c7dd;transition:color 0.3s}.footer nav a:hover{color:#fff}
@@ -83,10 +83,68 @@ a{color:inherit;text-decoration:none}.topbar{height:67px;border-bottom:1px solid
 .modal-body li { margin-bottom: 8px; }
 .modal-body strong { color: #7ee9ff; }
 
-/* Custom Scrollbar for Modal */
 .modal-content::-webkit-scrollbar { width: 6px; }
 .modal-content::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); border-radius: 10px; }
 .modal-content::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 10px; }
+
+/* ---------------------------------------------------- */
+/* DESKTOP-SPECIFIC SIZING (Fixes small text on Desktop) */
+/* ---------------------------------------------------- */
+@media(min-width: 901px) {
+  .nav nav a { font-size: 13px; padding: 26px 0; }
+  .resume { font-size: 13px; height: 38px; padding: 0 20px; }
+  .hero h1 { font-size: 42px; margin-bottom: 18px; }
+  .hero p { font-size: 14px; line-height: 1.6; max-width: 700px; }
+  .hero-meta { font-size: 12px; margin-top: 25px; }
+  .hero-meta i { font-size: 14px; }
+  .btn { font-size: 13px; height: 42px; padding: 0 22px; }
+  .intro h2, .career-title h2 { font-size: 26px; }
+  .intro p { font-size: 14px; }
+  .intro a { font-size: 12px; }
+  .glass h3 { font-size: 16px; margin-bottom: 8px; }
+  .glass p { font-size: 13px; line-height: 1.5; }
+  .glass .icon { width: 42px; height: 42px; font-size: 20px; margin-bottom: 15px; }
+  .flow-card { width: 120px; height: 130px; flex: 0 0 120px; }
+  .flow-card span { font-size: 28px; margin-bottom: 10px; }
+  .flow-card b { font-size: 11px; }
+  .flow-card small { font-size: 10px; }
+  .tech-card { padding: 18px; }
+  .tech-card b { font-size: 14px; margin-bottom: 12px; }
+  .tech-card span { font-size: 12px; margin-right: 15px; margin-bottom: 10px; }
+  .tech-card span i { font-size: 14px; }
+  .role-copy h2 { font-size: 26px; margin-bottom: 5px; }
+  .role-copy h4 { font-size: 14px; margin-bottom: 12px; }
+  .role-copy p { font-size: 14px; line-height: 1.6; margin-bottom: 15px; }
+  .role-points span { font-size: 12.5px; }
+  .scale-strip b { font-size: 11px; }
+  .scale-strip span { font-size: 11px; }
+  .focus b { font-size: 14px; margin-bottom: 15px; }
+  .focus span { font-size: 12px; margin-bottom: 8px; display: block; }
+  .focus span i { width: 20px; }
+  .timeline-card b { font-size: 15px; }
+  .timeline-card small { font-size: 12px; margin-top: 6px; }
+  .work-card { grid-template-columns: 45px 1fr; padding: 20px; }
+  .work-icon { width: 45px; height: 45px; font-size: 20px; }
+  .work-card h3 { font-size: 15px; margin-bottom: 8px; }
+  .work-card p { font-size: 13px; line-height: 1.5; }
+  .tags span { font-size: 10px; padding: 4px 10px; }
+  .metric { padding: 20px; height: auto; }
+  .metric span { font-size: 24px; }
+  .metric strong { font-size: 32px; margin: 15px 0 8px; }
+  .metric small { font-size: 12.5px; }
+  .connect-inner { padding: 60px 0; }
+  .connect h2 { font-size: 28px; margin-bottom: 10px; }
+  .connect p { font-size: 14px; max-width: 600px; }
+  .prose-block h2 { font-size: 32px; }
+  .prose-block p { font-size: 16px; margin-bottom: 20px; }
+  .highlight-box h3 { font-size: 18px; margin-bottom: 12px; }
+  .highlight-box p { font-size: 15px; }
+  .modal-header h2 { font-size: 24px; }
+  .modal-icon-container { width: 55px; height: 55px; font-size: 24px; }
+  .modal-tags span { font-size: 12px; padding: 6px 12px; }
+  .modal-body { font-size: 14.5px; }
+  .modal-body h4 { font-size: 18px; }
+}
 
 @media(max-width:1100px){.wrap{width:calc(100% - 48px)}.nav{gap:24px}.nav nav{gap:22px}.hero h1{font-size:27px}.work-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:900px){.wrap{width:calc(100% - 30px)}.nav nav,.nav>.resume{display:none}.hamb{display:block}.hero-grid{grid-template-columns:1fr}.hero-art{height:270px;justify-content:center}.hero-image{height:270px;max-width:100%;width:auto}.two-col{grid-template-columns:1fr}.cards.four,.cards.eight{grid-template-columns:repeat(2,1fr)}.career{overflow:visible}.timeline{display:flex;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;padding-bottom:20px;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory}.timeline-card{flex:0 0 170px;scroll-snap-align:start}.timeline:before{width:1020px;left:10px}.current-role{grid-template-columns:1fr}.tech-groups{grid-template-columns:repeat(2,1fr)}.connect-inner{grid-template-columns:1fr}.connect{padding:20px 0}.footer{height:auto;padding:15px 0;grid-template-columns:1fr}.footer nav{justify-self:start;flex-wrap:wrap}.work-grid{grid-template-columns:1fr}.nav nav.mobile{display:flex;position:absolute;top:67px;left:15px;right:15px;background:#03172f;border:1px solid #17639b;border-radius:10px;padding:12px;flex-direction:column;gap:0;z-index:50}.nav nav.mobile a{padding:15px;border-bottom:1px solid rgba(255,255,255,0.05)}.nav nav.mobile a:last-child{border:none}.nav nav.mobile a.active:after{display:none}}
