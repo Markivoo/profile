@@ -108,7 +108,7 @@ a{color:inherit;text-decoration:none}
 .experience{padding:20px 0 0}
 .current-role{display:grid;grid-template-columns:1.2fr 350px;gap:30px;align-items:stretch}
 .role-card{border:1px solid #0b8bd1;border-radius:10px;background:radial-gradient(circle at 30% 50%,rgba(0,142,255,.22),transparent 42%),linear-gradient(120deg,#062e59,#031a39);padding:30px;display:grid;grid-template-columns:1.24fr .76fr;gap:35px;box-shadow:inset 0 0 30px rgba(0,157,255,.05)}
-.role-copy label{font-size:11px;color:#70dfff;font-weight:900}
+.role-copy label{font-size:15px;color:#70dfff;font-weight:900}
 .role-copy h2{font-size:26px;margin:10px 0 5px}
 .role-copy h4{font-size:15px;color:#a9c0d8;margin:0 0 15px}
 .role-copy p{font-size:15px;color:#b2c8df;line-height:1.6;margin:0 0 20px}
