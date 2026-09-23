@@ -421,7 +421,6 @@ document.querySelectorAll(interactiveSelectors).forEach(card => {
       title = heading ? heading.innerText : 'Details';
     }
 
-    // Instead of raw HTML in the attribute, we grab the class string and build the HTML here safely.
     const iconClass = card.getAttribute('data-icon') || 'fa-solid fa-circle-info';
     
     modalTitle.innerText = title;
@@ -458,3 +457,18 @@ document.querySelectorAll('.modal-overlay').forEach(modal => modal.addEventListe
   if (e.target === modal) closeAllModals();
 }));
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAllModals(); });
+
+// --- SCROLL REVEAL MICRO-ANIMATIONS ---
+const revealElements = document.querySelectorAll('.glass, .work-card, .metric, .tech-card, .timeline-card, .flow-card, .role-card');
+revealElements.forEach(el => el.classList.add('reveal'));
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+      revealObserver.unobserve(entry.target); 
+    }
+  });
+}, { threshold: 0.1 });
+
+revealElements.forEach(el => revealObserver.observe(el));
